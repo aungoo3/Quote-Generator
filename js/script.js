@@ -64,22 +64,39 @@ function getRandomQuote () {
   return quotes[generateRandomQuote];
 }
 
+/***
+ * Background Random Color
+ ***/
+
+function randomRGB () {
+  const randomValue = () => Math.floor(Math.random() * 256);
+  const color = `rgb(${randomValue()}, ${randomValue()}, ${randomValue()})`;
+  return color;
+}
+
+
+
 
 /***
  * `printQuote` function
 ***/
 function printQuote() {
   const randomQuote = getRandomQuote();
+  const randomColor = randomRGB();
   
   let html = 
   `
     <p class = "quote"> ${ randomQuote['quote'] } </p>
-    <p class = "source"> ${ randomQuote['author'] }<span class = "citation"> ${ randomQuote['citation'] }</span><span class = "year"> ${ randomQuote['year'] } </span> </p>
+    <p class = "source"> ${ randomQuote['author'] }<span class = "citation"> ${ randomQuote['citation'] }</span><span class = "year"> ${ randomQuote['year'] }</span> 
+    </p>
   `;
   
   document.getElementById('quote-box').innerHTML = html ;
+  
+  document.body.style.backgroundColor = randomColor;
 
   return randomQuote;
+
 }
 
 
