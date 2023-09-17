@@ -100,6 +100,18 @@ function printQuote() {
 }
 
 
+/**
+ * Refresh the page every 7 seconds
+ * I give credit to https://www.geeksforgeeks.org/how-to-automatic-refresh-a-web-page-in-fixed-time/
+ ***/
+
+
+function autoRefresh() {
+  window.location = window.location.href;
+}
+setInterval(printQuote, 7000);
+
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
